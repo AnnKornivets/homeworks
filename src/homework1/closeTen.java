@@ -26,5 +26,6 @@ public class closeTen {
             System.out.println("Число "+ n+" ближе к "+a);
         }
 
+        System.out.println("URA");
     }
 }
