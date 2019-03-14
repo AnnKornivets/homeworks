@@ -19,12 +19,43 @@ import java.util.Scanner;
 Например, если дана строка "дом 48, корпус 9, парадная 7, этаж 4", то в массиве должны оказаться числа 48, 9, 7 и 4*/
 public class exercise4 {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in); // Объявляем Scanner
-        System.out.println("Enter array length: ");
-        int size = input.nextInt(); // Читаем с клавиатуры размер массива и записываем в size
-        int array[] = new int[size]; // Создаём массив int размером в size
-        System.out.println("Insert array elements:");;
-        System.out.println(array);
 
+        int a,lCount=0,rCount=0;
+
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Введите четное положительное число");
+
+        if (scan.hasNextInt()){
+
+            do{
+                a=scan.nextInt();
+                if(a%2!=0||a<1)System.out.println("Вы ошиблись, введите повторно четное положительное число!");
+            }
+            while(a%2!=0||a<1);
+
+            int[] arr = new int[a];
+            for(int i=0;i<arr.length;i++){
+                arr[i]=(int)(Math.random()*11)-5;
+                System.out.print(arr[i]+" ");
+
+                if(i<=arr.length/2-1){
+                    lCount+=Math.abs(arr[i]);
+                }
+                else {
+                    rCount+=Math.abs(arr[i]);
+                }
+                // какая из сум больше и выведем об этом сообщение
+                if(i==arr.length-1){
+                    System.out.println(" ");
+                    if(lCount>rCount)
+                        System.out.println("Сумма модулей первой половины массива больше и равна "+lCount);
+                    if(rCount>lCount)
+                        System.out.println("Сумма модулей второй половины массива больше и равна "+rCount);
+                    if(rCount==lCount)
+                        System.out.println("Суммы модулей первой и второй половины равны");
+                }
+            }
+        }
+        else System.out.println("Введено не число");
     }
 }
