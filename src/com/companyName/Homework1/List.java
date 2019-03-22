@@ -73,4 +73,5 @@ public class List {
             t = t.next;                //иначе ищем дальше
         }
     }
+
 }
